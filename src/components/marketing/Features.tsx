@@ -69,13 +69,14 @@ export default function Features() {
       id="features"
       className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
     >
-      {/* Section Header matching exact reference screenshot 2 */}
+      {/* Section Header matching shippie.dev exact screenshot */}
       <div className="text-center max-w-4xl mx-auto mb-14">
         <span className="text-xs font-mono font-bold tracking-widest uppercase text-[#e8542c] dark:text-[#f05a28] block mb-4">
           {kicker}
         </span>
         
-        <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight text-[#181715] dark:text-[#f3efe6] font-black leading-none mb-6">
+        {/* Exact Headline: A REVIEWER THAT READS THE WHOLE PICTURE */}
+        <h2 className="font-headline text-4xl sm:text-6xl md:text-7xl uppercase tracking-tight text-[#181715] dark:text-[#f3efe6] font-black leading-none mb-6">
           <span className="block">{titleLine1}</span>
           <span className="block">{titleLine2}</span>
         </h2>
