@@ -3,19 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import {
-  BookOpen,
   Terminal,
-  Shield,
-  Cpu,
   ChevronRight,
   ArrowLeft,
-  FileText,
   Search,
-  Check,
-  Copy,
-  Layers,
-  Wrench,
-  Sparkles,
 } from "lucide-react";
 import CodeBlock from "@/components/ui/CodeBlock";
 import { PRODUCT_CONFIG } from "@/lib/content";

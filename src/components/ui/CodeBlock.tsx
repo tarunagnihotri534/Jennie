@@ -75,8 +75,8 @@ export default function CodeBlock({
           <code>
             {code.split("\n").map((line, i) => {
               // Basic lightweight syntax coloring for standard keywords/comments
-              let isComment = line.trim().startsWith("#") || line.trim().startsWith("//");
-              let isCommandPrompt = line.trim().startsWith("$") || line.trim().startsWith("User:");
+              const isComment = line.trim().startsWith("#") || line.trim().startsWith("//");
+              const isCommandPrompt = line.trim().startsWith("$") || line.trim().startsWith("User:");
 
               return (
                 <div key={i} className="table-row">

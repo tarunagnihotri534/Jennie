@@ -8,10 +8,11 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
-    setMounted(true);
-    // Check initial dark mode from document or user system preference
     const isDarkMode = document.documentElement.classList.contains("dark");
-    setIsDark(isDarkMode);
+    queueMicrotask(() => {
+      setIsDark(isDarkMode);
+      setMounted(true);
+    });
   }, []);
 
   const toggleTheme = () => {
