@@ -29,10 +29,16 @@ export const metadata: Metadata = {
   title: `${PRODUCT_CONFIG.name} — ${PRODUCT_CONFIG.tagline}`,
   description: `${PRODUCT_CONFIG.hero.subheadlinePrefix}${PRODUCT_CONFIG.hero.subheadlineHighlight}`,
   keywords: ["AI code review", "GitHub Action", "PR reviewer", "CLI code review", "MCP tools", "Indie devs"],
+  icons: {
+    icon: "/jennie.png",
+    shortcut: "/jennie.png",
+    apple: "/jennie.png",
+  },
   openGraph: {
     title: PRODUCT_CONFIG.name,
     description: PRODUCT_CONFIG.tagline,
     type: "website",
+    images: [{ url: "/jennie.png" }],
   },
 };
 

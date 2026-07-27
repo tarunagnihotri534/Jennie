@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Copy, Check, ArrowRight, Anchor } from "lucide-react";
+import Image from "next/image";
+import { Copy, Check, ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import Stamp from "@/components/ui/Stamp";
 import { PRODUCT_CONFIG } from "@/lib/content";
@@ -97,9 +98,15 @@ export default function Hero() {
             href={PRODUCT_CONFIG.repoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-[#181715] dark:text-[#f3efe6] hover:text-[#e8542c] dark:hover:text-[#f05a28] transition-colors"
+            className="flex items-center gap-1.5 text-[#f3efe6] hover:text-[#f05a28] transition-colors"
           >
-            <Anchor className="w-3.5 h-3.5 text-[#e8542c]" />
+            <Image
+              src="/jennie.png"
+              alt="Jennie Logo"
+              width={16}
+              height={16}
+              className="object-contain rounded"
+            />
             <span className="font-bold uppercase tracking-wider">{PRODUCT_CONFIG.repoOrgName}</span>
             <ArrowRight className="w-3.5 h-3.5 ml-0.5 group-hover:translate-x-1 transition-transform" />
           </a>

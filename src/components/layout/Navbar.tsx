@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Anchor, Star, Menu, X, User } from "lucide-react";
+import Image from "next/image";
+import { Star, Menu, X, User } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GithubIcon from "@/components/ui/GithubIcon";
@@ -104,8 +105,14 @@ export default function Navbar() {
       >
         {/* Left: Brand Logo & Wordmark */}
         <Link href="/" className="flex items-center gap-2.5 group shrink-0">
-          <div className="p-1.5 rounded-lg bg-[#f05a28] text-white shadow-sm transition-transform group-hover:scale-105">
-            <Anchor className="w-4.5 h-4.5 stroke-[2.5]" />
+          <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-[#f05a28]/20 border border-[#f05a28]/30 p-1 shadow-sm transition-transform group-hover:scale-105">
+            <Image
+              src="/jennie.png"
+              alt="Jennie Logo"
+              width={26}
+              height={26}
+              className="object-contain w-full h-full rounded"
+            />
           </div>
           <span className="font-headline text-xl md:text-2xl font-black tracking-tight text-[#f3efe6]">
             {PRODUCT_CONFIG.name}
