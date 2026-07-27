@@ -22,20 +22,17 @@ export default function Navbar() {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // 1. ScrollTrigger for Navbar state toggle (Base vs Scrolled Floating Pill)
+      // 1. ScrollTrigger for Floating Pill morph on scroll
       ScrollTrigger.create({
-        start: 80, // px scrolled down
+        start: 60, // px scrolled down
         onEnter: () => {
           setIsScrolled(true);
           if (containerRef.current) {
             gsap.to(containerRef.current, {
-              paddingInline: "1.75rem",
-              paddingBlock: "0.6rem",
-              borderRadius: "9999px",
-              borderColor: "rgba(0,0,0,0.08)",
-              backgroundColor: "rgba(234, 227, 213, 0.92)",
-              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
-              duration: 0.35,
+              backgroundColor: "rgba(234, 227, 213, 0.95)",
+              borderColor: "rgba(220, 211, 195, 1)",
+              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.12)",
+              duration: 0.3,
               ease: "power2.out",
             });
           }
@@ -44,20 +41,17 @@ export default function Navbar() {
           setIsScrolled(false);
           if (containerRef.current) {
             gsap.to(containerRef.current, {
-              paddingInline: "1.5rem",
-              paddingBlock: "1rem",
-              borderRadius: "0px",
-              borderColor: "transparent",
-              backgroundColor: "transparent",
-              boxShadow: "none",
-              duration: 0.35,
+              backgroundColor: "rgba(234, 227, 213, 0.8)",
+              borderColor: "rgba(220, 211, 195, 0.8)",
+              boxShadow: "0 2px 10px rgba(0, 0, 0, 0.04)",
+              duration: 0.3,
               ease: "power2.out",
             });
           }
         },
       });
 
-      // 2. Section ScrollTriggers for Active Nav Link Tracking
+      // 2. Active Section ScrollTriggers
       const sections = [
         { id: "hero", navId: "FEATURES" },
         { id: "features", navId: "FEATURES" },
@@ -85,16 +79,15 @@ export default function Navbar() {
     return () => ctx.revert();
   }, []);
 
-  // GSAP Smooth Color Transition for Active Link
+  // Smooth GSAP color update for active link
   useEffect(() => {
     PRODUCT_CONFIG.navLinks.forEach((link) => {
       const linkEl = linkRefs.current[link.label];
       if (linkEl) {
         const isActive = activeSection === link.label;
         gsap.to(linkEl, {
-          color: isActive ? "#e8542c" : "#5e5a54",
+          color: isActive ? "#e8542c" : "#181715",
           duration: 0.25,
-          ease: "power1.out",
         });
       }
     });
@@ -103,27 +96,26 @@ export default function Navbar() {
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-50 w-full pt-3 px-4 sm:px-6 lg:px-8 transition-all duration-300"
+      className="sticky top-4 z-50 w-full px-4 sm:px-6 lg:px-8"
     >
-      {/* Container morphs between Base Inline & Floating Capsule Pill */}
+      {/* Floating Pill Capsule matching shippie.dev exact style */}
       <div
         ref={containerRef}
-        className="max-w-6xl mx-auto flex items-center justify-between transition-all duration-300 border border-transparent"
+        className="max-w-5xl mx-auto rounded-full bg-[#eae3d5]/90 dark:bg-[#1c1a17]/90 backdrop-blur-md border border-[#dcd3c3] dark:border-[#2e2b26] shadow-sm px-6 py-2.5 flex items-center justify-between transition-colors"
       >
-        {/* Left: Brand Logo & Wordmark */}
+        {/* Left: Brand Logo & Wordmark (Sharp Charcoal Text in Light Mode) */}
         <Link href="/" className="flex items-center gap-2.5 group shrink-0">
           <div className="p-1.5 rounded-lg bg-[#e8542c] text-white shadow-sm transition-transform group-hover:scale-105">
-            <Anchor className="w-4 h-4 stroke-[2.5]" />
+            <Anchor className="w-4.5 h-4.5 stroke-[2.5]" />
           </div>
-          <span className="font-headline text-xl md:text-2xl font-bold tracking-tight text-[#181715] dark:text-[#f3efe6]">
+          <span className="font-headline text-xl md:text-2xl font-black tracking-tight text-[#181715] dark:text-[#f3efe6]">
             {PRODUCT_CONFIG.name}
           </span>
         </Link>
 
-        {/* Center: Nav Links (Full string "DOCUMENTATION" at top -> "DOCS" when scrolled) */}
+        {/* Center: Nav Links */}
         <nav className="hidden md:flex items-center gap-8">
           {PRODUCT_CONFIG.navLinks.map((link) => {
-            // String swap: DOCUMENTATION -> DOCS when scrolled
             const displayLabel =
               isScrolled && link.label === "DOCUMENTATION" ? "DOCS" : link.label;
 
@@ -134,7 +126,7 @@ export default function Navbar() {
                 ref={(el) => {
                   linkRefs.current[link.label] = el;
                 }}
-                className="text-xs font-mono font-semibold tracking-widest uppercase transition-colors hover:text-[#e8542c]"
+                className="text-xs font-mono font-bold tracking-widest uppercase transition-colors text-[#181715] dark:text-[#f3efe6] hover:text-[#e8542c]"
               >
                 {displayLabel}
               </Link>
@@ -143,24 +135,21 @@ export default function Navbar() {
         </nav>
 
         {/* Right Side: GitHub Icon, Star Count, Theme Toggle, Avatar */}
-        <div className="hidden md:flex items-center gap-4 shrink-0">
-          {/* GitHub & Star Count Pill */}
+        <div className="hidden md:flex items-center gap-3.5 shrink-0">
           <a
             href={PRODUCT_CONFIG.repoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-medium bg-[#eae3d5]/80 dark:bg-[#252320]/80 text-[#181715] dark:text-[#f3efe6] border border-[#dcd3c3] dark:border-[#38342e] hover:border-[#e8542c] transition-all group"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-[#dcd3c3]/70 dark:bg-[#252320] text-[#181715] dark:text-[#f3efe6] border border-[#c8bfae] dark:border-[#38342e] hover:border-[#e8542c] transition-all group"
           >
-            <GithubIcon className="w-4 h-4" />
+            <GithubIcon className="w-4 h-4 text-[#181715] dark:text-[#f3efe6]" />
             <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400 group-hover:scale-110 transition-transform" />
             <span>{PRODUCT_CONFIG.starsCount}</span>
           </a>
 
-          {/* Theme Toggle */}
           <ThemeToggle />
 
-          {/* User Avatar Placeholder */}
-          <div className="w-8 h-8 rounded-full bg-[#dcd3c3] dark:bg-[#2e2b26] border border-[#c8bfae] dark:border-[#3e3a35] flex items-center justify-center text-[#5e5a54] dark:text-[#a39e93] shadow-sm hover:scale-105 transition-transform cursor-pointer">
+          <div className="w-8 h-8 rounded-full bg-[#dcd3c3] dark:bg-[#2e2b26] border border-[#c8bfae] dark:border-[#3e3a35] flex items-center justify-center text-[#181715] dark:text-[#f3efe6] shadow-sm hover:scale-105 transition-transform cursor-pointer">
             <User className="w-4 h-4" />
           </div>
         </div>
@@ -187,7 +176,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-mono font-semibold tracking-wider text-[#5e5a54] dark:text-[#a39e93] hover:text-[#e8542c] uppercase py-1"
+                className="text-sm font-mono font-bold tracking-wider text-[#181715] dark:text-[#f3efe6] hover:text-[#e8542c] uppercase py-1"
               >
                 {link.label}
               </Link>
@@ -198,7 +187,7 @@ export default function Navbar() {
               href={PRODUCT_CONFIG.repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-xs font-mono text-[#5e5a54] dark:text-[#a39e93]"
+              className="flex items-center gap-2 text-xs font-mono font-bold text-[#181715] dark:text-[#f3efe6]"
             >
               <GithubIcon className="w-4 h-4" />
               <span>GitHub ⭐ {PRODUCT_CONFIG.starsCount}</span>
