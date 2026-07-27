@@ -10,7 +10,7 @@ export default function Features() {
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
-  const { eyebrow, cards } = PRODUCT_CONFIG.inspection;
+  const { kicker, titleLine1, titleLine2, subtitle, cards } = PRODUCT_CONFIG.inspection;
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -30,7 +30,6 @@ export default function Features() {
         },
       });
 
-      // 1. Cards rise into place left to right
       tl.from(cardEls, {
         y: 40,
         opacity: 0,
@@ -38,7 +37,6 @@ export default function Features() {
         stagger: 0.15,
         ease: "power3.out",
       })
-      // 2. Oversized numbers subtle reveal in sync with card fade-in
       .from(
         numberEls,
         {
@@ -49,7 +47,6 @@ export default function Features() {
         },
         "<"
       )
-      // 3. Nested checklist items stagger right after cards land
       .from(
         checkItems,
         {
@@ -72,17 +69,26 @@ export default function Features() {
       id="features"
       className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
     >
-      {/* Section Eyebrow Header */}
-      <div className="text-center max-w-2xl mx-auto mb-14">
-        <p className="text-sm md:text-base font-mono text-[#6e685c] dark:text-[#a39e93] leading-relaxed">
-          {eyebrow}
+      {/* Section Header matching exact reference screenshot 2 */}
+      <div className="text-center max-w-4xl mx-auto mb-14">
+        <span className="text-xs font-mono font-bold tracking-widest uppercase text-[#e8542c] dark:text-[#f05a28] block mb-4">
+          {kicker}
+        </span>
+        
+        <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight text-[#181715] dark:text-[#f3efe6] font-black leading-none mb-6">
+          <span className="block">{titleLine1}</span>
+          <span className="block">{titleLine2}</span>
+        </h2>
+
+        <p className="text-base sm:text-lg text-[#5e5a54] dark:text-[#a39e93] max-w-xl mx-auto leading-relaxed">
+          {subtitle}
         </p>
       </div>
 
-      {/* 3-Column Flush Card Grid with 1px Vertical Dividers */}
+      {/* 3-Column White Card Grid with 1px Vertical Dividers */}
       <div
         ref={gridRef}
-        className="grid grid-cols-1 md:grid-cols-3 gap-0 rounded-2xl overflow-hidden border border-[#dcd3c3] dark:border-[#2e2b26] shadow-lg"
+        className="grid grid-cols-1 md:grid-cols-3 gap-0 rounded-2xl overflow-hidden border border-[#dcd3c3] dark:border-[#2e2b26] shadow-xl bg-white dark:bg-[#181715]"
       >
         {cards.map((cardData, idx) => (
           <FeatureCard

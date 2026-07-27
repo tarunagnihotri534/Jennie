@@ -48,7 +48,7 @@ export default function FeatureCard({ data, isLast }: FeatureCardProps) {
 
     if (numberRef.current) {
       gsap.to(numberRef.current, {
-        opacity: 0.35,
+        opacity: 0.45,
         duration: 0.3,
       });
     }
@@ -85,7 +85,7 @@ export default function FeatureCard({ data, isLast }: FeatureCardProps) {
       ease: "power2.out",
     });
 
-    // GSAP cursor-following spotlight glow
+    // GSAP cursor spotlight position
     if (spotlightRef.current) {
       gsap.to(spotlightRef.current, {
         x: e.clientX - rect.left - 100,
@@ -112,7 +112,7 @@ export default function FeatureCard({ data, isLast }: FeatureCardProps) {
 
     if (numberRef.current) {
       gsap.to(numberRef.current, {
-        opacity: 0.2,
+        opacity: 0.25,
         duration: 0.3,
       });
     }
@@ -134,7 +134,7 @@ export default function FeatureCard({ data, isLast }: FeatureCardProps) {
       className={`feature-card relative p-8 md:p-10 flex flex-col justify-between transition-colors duration-200 cursor-pointer overflow-hidden ${
         isLifted
           ? "bg-white dark:bg-[#1f1d1a] shadow-sm z-10"
-          : "bg-[#fbf9f5] dark:bg-[#181715] z-0"
+          : "bg-[#faf8f5] dark:bg-[#181715] z-0"
       } ${
         !isLast ? "border-r border-[#e8e2d8] dark:border-[#2e2b26]" : ""
       } ${
@@ -153,7 +153,7 @@ export default function FeatureCard({ data, isLast }: FeatureCardProps) {
         <div className="flex items-start justify-between mb-8">
           <span
             ref={numberRef}
-            className="card-number font-mono text-5xl md:text-6xl font-black text-neutral-400 dark:text-neutral-500 opacity-20 select-none leading-none tracking-tight"
+            className="card-number font-mono text-5xl md:text-6xl font-black text-[#c8bfb0] dark:text-neutral-500 opacity-25 select-none leading-none tracking-tight"
           >
             {data.number}
           </span>
@@ -170,13 +170,13 @@ export default function FeatureCard({ data, isLast }: FeatureCardProps) {
           </span>
         </div>
 
-        {/* Title (Exact Reference Typography) */}
+        {/* Title */}
         <h3 className="font-headline text-lg md:text-xl font-bold uppercase tracking-tight text-[#181715] dark:text-[#f3efe6] mb-3">
           {data.title}
         </h3>
 
-        {/* Description (Exact Reference Typography) */}
-        <p className="text-xs md:text-sm text-[#6e685c] dark:text-[#a39e93] leading-relaxed mb-6">
+        {/* Description */}
+        <p className="text-xs md:text-sm text-[#5e5a54] dark:text-[#a39e93] leading-relaxed mb-6">
           {data.description}
         </p>
 

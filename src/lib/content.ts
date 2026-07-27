@@ -45,7 +45,10 @@ export const PRODUCT_CONFIG = {
 
   // Inspection & Ethos Section (Matching Reference Design)
   inspection: {
-    eyebrow: "Jennie does the read-through a human reviewer would — on every change you ship.",
+    kicker: "THE INSPECTION",
+    titleLine1: "A REVIEWER THAT READS THE WHOLE",
+    titleLine2: "PICTURE",
+    subtitle: "Jennie does the read-through a human reviewer would — on every change you ship.",
     cards: [
       {
         id: "card-1",
