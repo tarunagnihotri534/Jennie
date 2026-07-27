@@ -41,7 +41,7 @@ export default function Navbar() {
           setIsScrolled(false);
           if (containerRef.current) {
             gsap.to(containerRef.current, {
-              backgroundColor: "rgba(234, 227, 213, 0.8)",
+              backgroundColor: "rgba(234, 227, 213, 0.85)",
               borderColor: "rgba(220, 211, 195, 0.8)",
               boxShadow: "0 2px 10px rgba(0, 0, 0, 0.04)",
               duration: 0.3,
@@ -79,14 +79,15 @@ export default function Navbar() {
     return () => ctx.revert();
   }, []);
 
-  // Smooth GSAP color update for active link
+  // Smooth GSAP color update for active link respecting current light/dark theme
   useEffect(() => {
+    const isDarkTheme = document.documentElement.classList.contains("dark");
     PRODUCT_CONFIG.navLinks.forEach((link) => {
       const linkEl = linkRefs.current[link.label];
       if (linkEl) {
         const isActive = activeSection === link.label;
         gsap.to(linkEl, {
-          color: isActive ? "#e8542c" : "#181715",
+          color: isActive ? "#e8542c" : isDarkTheme ? "#f3efe6" : "#181715",
           duration: 0.25,
         });
       }
@@ -103,7 +104,7 @@ export default function Navbar() {
         ref={containerRef}
         className="max-w-5xl mx-auto rounded-full bg-[#eae3d5]/90 dark:bg-[#1c1a17]/90 backdrop-blur-md border border-[#dcd3c3] dark:border-[#2e2b26] shadow-sm px-6 py-2.5 flex items-center justify-between transition-colors"
       >
-        {/* Left: Brand Logo & Wordmark (Sharp Charcoal Text in Light Mode) */}
+        {/* Left: Brand Logo & Wordmark (Black text in light theme) */}
         <Link href="/" className="flex items-center gap-2.5 group shrink-0">
           <div className="p-1.5 rounded-lg bg-[#e8542c] text-white shadow-sm transition-transform group-hover:scale-105">
             <Anchor className="w-4.5 h-4.5 stroke-[2.5]" />
@@ -140,7 +141,7 @@ export default function Navbar() {
             href={PRODUCT_CONFIG.repoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-[#dcd3c3]/70 dark:bg-[#252320] text-[#181715] dark:text-[#f3efe6] border border-[#c8bfae] dark:border-[#38342e] hover:border-[#e8542c] transition-all group"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-[#dcd3c3]/80 dark:bg-[#252320] text-[#181715] dark:text-[#f3efe6] border border-[#c8bfae] dark:border-[#38342e] hover:border-[#e8542c] transition-all group"
           >
             <GithubIcon className="w-4 h-4 text-[#181715] dark:text-[#f3efe6]" />
             <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400 group-hover:scale-110 transition-transform" />
