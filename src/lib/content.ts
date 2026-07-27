@@ -23,7 +23,7 @@ export const PRODUCT_CONFIG = {
   // Hero Headlines & Subheadlines
   hero: {
     headlineLine1: "CODE REVIEW FOR",
-    headlineLine2: "INDIE DEVS",
+    headlineLine2Words: ["HACKERS", "VIBE CODERS", "BUILDERS", "SHIPPERS", "INDIE DEVS"],
     subheadlinePrefix: "Bugs, leaked secrets, missing tests — ",
     subheadlineHighlight: "caught before they merge.",
     ctaCaptionPrefix: "SCAFFOLDS A GITHUB ACTION - OR ",

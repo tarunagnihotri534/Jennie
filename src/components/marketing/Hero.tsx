@@ -8,6 +8,8 @@ import { PRODUCT_CONFIG } from "@/lib/content";
 
 export default function Hero() {
   const [copied, setCopied] = useState(false);
+  const [wordIndex, setWordIndex] = useState(0);
+
   const heroRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const stampRef = useRef<HTMLDivElement>(null);
@@ -16,18 +18,19 @@ export default function Hero() {
   const subheadlineRef = useRef<HTMLParagraphElement>(null);
   const ctaBlockRef = useRef<HTMLDivElement>(null);
 
+  const words = PRODUCT_CONFIG.hero.headlineLine2Words;
+
+  // Staggered entrance animation on mount
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      // Initial state
       gsap.set([badgeRef.current, line1Ref.current, line2Ref.current, subheadlineRef.current, ctaBlockRef.current], {
         opacity: 0,
         y: 30,
       });
       gsap.set(stampRef.current, { opacity: 0, scale: 0.5, rotate: -20 });
 
-      // Staggered entrance animation
       tl.to(badgeRef.current, { opacity: 1, y: 0, duration: 0.6 })
         .to(line1Ref.current, { opacity: 1, y: 0, duration: 0.7 }, "-=0.3")
         .to(line2Ref.current, { opacity: 1, y: 0, duration: 0.8, ease: "back.out(1.4)" }, "-=0.5")
@@ -38,6 +41,32 @@ export default function Hero() {
 
     return () => ctx.revert();
   }, []);
+
+  // Continuous smooth word-cycling animation for line 2
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!line2Ref.current) return;
+
+      // Animate current word sliding up and fading out
+      gsap.to(line2Ref.current, {
+        y: -35,
+        opacity: 0,
+        duration: 0.4,
+        ease: "power2.in",
+        onComplete: () => {
+          setWordIndex((prev) => (prev + 1) % words.length);
+          // Set new word position below and animate in
+          gsap.fromTo(
+            line2Ref.current,
+            { y: 35, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.5)" }
+          );
+        },
+      });
+    }, 2200);
+
+    return () => clearInterval(interval);
+  }, [words.length]);
 
   const handleCopyInit = async () => {
     try {
@@ -81,12 +110,20 @@ export default function Hero() {
         {/* Two-Line Giant Headline */}
         <div className="w-full max-w-5xl mb-6">
           <h1 className="font-headline tracking-tighter uppercase leading-none select-none">
+            {/* Line 1: Dark gradient charcoal to gray */}
             <span ref={line1Ref} className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-gradient-charcoal mb-1">
               {PRODUCT_CONFIG.hero.headlineLine1}
             </span>
-            <span ref={line2Ref} className="block text-5xl sm:text-7xl md:text-8xl lg:text-[110px] text-[#e8542c] dark:text-[#f05a28] font-black drop-shadow-sm">
-              {PRODUCT_CONFIG.hero.headlineLine2}
-            </span>
+            
+            {/* Line 2: Continuous GSAP Animated Word Rotation */}
+            <div className="h-[60px] sm:h-[90px] md:h-[110px] lg:h-[130px] flex items-center justify-center overflow-hidden">
+              <span
+                ref={line2Ref}
+                className="block text-5xl sm:text-7xl md:text-8xl lg:text-[110px] text-[#e8542c] dark:text-[#f05a28] font-black drop-shadow-sm"
+              >
+                {words[wordIndex]}
+              </span>
+            </div>
           </h1>
         </div>
 
