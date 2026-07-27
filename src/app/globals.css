@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-cream: #f4efe6;
+    --bg-paper: #f2ede4;
+    --card-bg: #eae3d5;
+    --card-border: #dcd3c3;
+    --text-primary: #181715;
+    --text-secondary: #5e5a54;
+    --accent-orange: #e8542c;
+    --accent-orange-hover: #d44722;
+    --code-bg: #1c1a17;
+    --code-text: #f0ece1;
+  }
+
+  .dark {
+    --bg-cream: #121110;
+    --bg-paper: #161513;
+    --card-bg: #1e1c19;
+    --card-border: #2e2b26;
+    --text-primary: #f3efe6;
+    --text-secondary: #a39e93;
+    --accent-orange: #f05a28;
+    --accent-orange-hover: #fa6836;
+    --code-bg: #0d0c0b;
+    --code-text: #f0ece1;
+  }
+}
+
+body {
+  background-color: var(--bg-paper);
+  color: var(--text-primary);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Tilt Warp Display Font Utility for Headings */
+.font-headline {
+  font-family: var(--font-headline), "Tilt Warp", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "XROT" 0,
+    "YROT" 0;
+  letter-spacing: -0.01em;
+}
+
+/* Subtle Paper Texture Background Overlay */
+.paper-texture {
+  background-color: var(--bg-paper);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.dark .paper-texture {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+}
+
+/* Dashed Corner Brackets for Terminal CTA Block */
+.corner-dashed-container {
+  position: relative;
+}
+
+.corner-dashed-tl {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px dashed var(--accent-orange);
+  border-left: 2px dashed var(--accent-orange);
+  pointer-events: none;
+}
+
+.corner-dashed-br {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  width: 14px;
+  height: 14px;
+  border-bottom: 2px dashed var(--accent-orange);
+  border-right: 2px dashed var(--accent-orange);
+  pointer-events: none;
+}
+
+/* Rotated Stamp Badge Styling */
+.stamp-badge {
+  transform: rotate(6deg);
+  border: 2px dashed var(--accent-orange);
+  color: var(--accent-orange);
+  transition: transform 0.2s ease;
+}
+
+.stamp-badge:hover {
+  transform: rotate(2deg) scale(1.04);
+}
+
+/* Dark Gradient Text for Line 1 */
+.text-gradient-charcoal {
+  background: linear-gradient(180deg, #181715 0%, #4a4640 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .text-gradient-charcoal {
+  background: linear-gradient(180deg, #ffffff 0%, #a8a297 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-orange);
+}
