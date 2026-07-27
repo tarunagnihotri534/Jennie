@@ -31,52 +31,43 @@ export const PRODUCT_CONFIG = {
     ctaCaptionSuffix: " LOCALLY",
   },
 
+  // Inspection & Ethos Section (Matching Reference Design)
+  inspection: {
+    kicker: "THE INSPECTION",
+    titleLine1: "A REVIEWER THAT READS THE WHOLE",
+    titleLine2: "PICTURE",
+    subtitle: "Jennie does the read-through a human reviewer would — on every change you ship.",
+    cards: [
+      {
+        number: "01",
+        tag: "CI",
+        title: "REVIEWS ON GITHUB",
+        description: "Runs as a GitHub Action on every pull request. Reads the diff and posts focused inline comments plus a summary — like a human reviewer, minus the wait.",
+        isHighlighted: false,
+      },
+      {
+        number: "02",
+        tag: "AGENT",
+        title: "EXPLORES YOUR CODEBASE",
+        description: "Built on an autonomous AI agent framework, Jennie runs a real agent loop with developer tools — so it reads far beyond the diff to understand the full picture.",
+        isHighlighted: true,
+      },
+      {
+        number: "03",
+        tag: "MCP",
+        title: "EXTEND IT WITH MCP",
+        description: "Acts as a Model Context Protocol client, so you can wire in external tools and give the agent more context while it reviews.",
+        isHighlighted: false,
+      },
+    ],
+  },
+
   // Center Navigation Links
   navLinks: [
     { label: "FEATURES", href: "#features" },
     { label: "INSTALL", href: "#quickstart" },
     { label: "FAQ", href: "#faq" },
-    { label: "DOCUMENTATION", href: "/docs" },
-  ],
-
-  // Feature Grid Cards (3-4 Column Ethos / Feature List)
-  features: [
-    {
-      id: "agent-loop",
-      icon: "Bot",
-      title: "Prebuilt Review Workflow",
-      description: "Runs an autonomous AI agent loop that reads your PR diff, recursively inspects surrounding files, and verifies edge cases before leaving comments.",
-    },
-    {
-      id: "runs-anywhere",
-      icon: "Cpu",
-      title: "Runs Anywhere",
-      description: "Seamlessly integrates into Node.js, Cloudflare Workers, GitHub Actions, or GitLab CI pipelines without heavy runtime overhead.",
-    },
-    {
-      id: "real-dev-tools",
-      icon: "Wrench",
-      title: "Acts Like a Human Reviewer",
-      description: "Uses real developer tools (ast-grep, ripgrep, dynamic file tree lookup) instead of an inflexible static regex matcher.",
-    },
-    {
-      id: "provider-agnostic",
-      icon: "Zap",
-      title: "Provider-Agnostic",
-      description: "Bring your own LLM API keys: native support for Anthropic Claude 3.5/3.7, OpenAI o3/gpt-4o, OpenRouter, or Cloudflare Workers AI.",
-    },
-    {
-      id: "mcp-support",
-      icon: "Layers",
-      title: "MCP Client Integration",
-      description: "Connect Model Context Protocol (MCP) servers for live browser testing, APM observability log checks, and internal docs verification.",
-    },
-    {
-      id: "security-first",
-      icon: "ShieldAlert",
-      title: "Leaked Secret & Safety Guard",
-      description: "Proactively flags exposed API keys, hardcoded JWTs, vulnerable dependencies, and unsafe SQL/eval queries in pull requests.",
-    },
+    { label: "DOCS", href: "/docs" },
   ],
 
   // QuickStart Showcase Code Snippets
