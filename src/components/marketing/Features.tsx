@@ -47,15 +47,10 @@ export default function Features() {
           {kicker}
         </span>
         
-        {/* Giant Headline with Solid Orange Highlight Blocks */}
-        <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight leading-snug mb-6 select-none">
-          <span className="inline-block bg-[#e8542c] dark:bg-[#f05a28] text-white px-4 py-1.5 rounded-sm shadow-sm mb-2">
-            {titleLine1}
-          </span>
-          <br />
-          <span className="inline-block bg-[#e8542c] dark:bg-[#f05a28] text-white px-5 py-1.5 rounded-sm shadow-sm">
-            {titleLine2}
-          </span>
+        {/* Giant Headline with Bold Orange Text (No Background Box) */}
+        <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight text-[#e8542c] dark:text-[#f05a28] font-black leading-none mb-6">
+          <span className="block">{titleLine1}</span>
+          <span className="block">{titleLine2}</span>
         </h2>
 
         <p className="text-base sm:text-lg text-[#5e5a54] dark:text-[#a39e93] max-w-xl mx-auto leading-relaxed mt-4">
