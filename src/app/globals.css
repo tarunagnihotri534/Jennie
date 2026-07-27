@@ -2,19 +2,6 @@
 
 @layer base {
   :root {
-    --bg-cream: #f4efe6;
-    --bg-paper: #f2ede4;
-    --card-bg: #eae3d5;
-    --card-border: #dcd3c3;
-    --text-primary: #181715;
-    --text-secondary: #5e5a54;
-    --accent-orange: #e8542c;
-    --accent-orange-hover: #d44722;
-    --code-bg: #1c1a17;
-    --code-text: #f0ece1;
-  }
-
-  .dark {
     --bg-cream: #121110;
     --bg-paper: #161513;
     --card-bg: #1e1c19;
@@ -33,7 +20,6 @@ body {
   color: var(--text-primary);
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
-  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* Tilt Warp Display Font Utility for Headings */
@@ -51,12 +37,8 @@ body {
 /* Subtle Paper Texture Background Overlay */
 .paper-texture {
   background-color: var(--bg-paper);
-  background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 0);
-  background-size: 24px 24px;
-}
-
-.dark .paper-texture {
   background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
 }
 
 /* Dashed Corner Brackets for Terminal CTA Block */
@@ -100,12 +82,6 @@ body {
 
 /* Dark Gradient Text for Line 1 */
 .text-gradient-charcoal {
-  background: linear-gradient(180deg, #181715 0%, #4a4640 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.dark .text-gradient-charcoal {
   background: linear-gradient(180deg, #ffffff 0%, #a8a297 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
