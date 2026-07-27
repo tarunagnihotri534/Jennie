@@ -75,8 +75,8 @@ export default function Features() {
           {kicker}
         </span>
         
-        {/* Exact Headline: A REVIEWER THAT READS THE WHOLE PICTURE */}
-        <h2 className="font-headline text-4xl sm:text-6xl md:text-7xl uppercase tracking-tight text-[#181715] dark:text-[#f3efe6] font-black leading-none mb-6">
+        {/* Exact Headline: A REVIEWER THAT READS / THE WHOLE PICTURE */}
+        <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl lg:text-6xl uppercase tracking-tight text-[#181715] dark:text-[#f3efe6] font-black leading-none mb-6">
           <span className="block">{titleLine1}</span>
           <span className="block">{titleLine2}</span>
         </h2>

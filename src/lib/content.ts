@@ -23,7 +23,7 @@ export const PRODUCT_CONFIG = {
   badge: "OPEN SOURCE",
   repoOrgName: "tarunagnihotri534/Jennie", // GitHub repository org/name display
   repoUrl: "https://github.com/tarunagnihotri534/Jennie", // GitHub repository URL
-  starsCount: "2.5K", // Displayed GitHub star count
+  starsCount: "0", // Default GitHub star count fallback
   stampText: "CLEARED TO MERGE", // Rotated stamp badge text
 
   // CLI & Command Names
@@ -46,8 +46,8 @@ export const PRODUCT_CONFIG = {
   // Inspection & Ethos Section (Matching Reference Design)
   inspection: {
     kicker: "THE INSPECTION",
-    titleLine1: "A REVIEWER THAT READS THE WHOLE",
-    titleLine2: "PICTURE",
+    titleLine1: "A REVIEWER THAT READS",
+    titleLine2: "THE WHOLE PICTURE",
     subtitle: "Jennie does the read-through a human reviewer would — on every change you ship.",
     cards: [
       {
@@ -164,20 +164,29 @@ Result: 2 suggestions posted inline. 0 security leaks found.`,
   // FAQ Section
   faqs: [
     {
-      question: "How does this differ from static linters like ESLint or SonarQube?",
-      answer: "Linters enforce static AST syntax rules. Our agent acts like a senior engineer: it understands code context, traces function calls across files, checks logic edge cases, and flags architectural bugs or leaked credentials.",
+      question: "What is Jennie?",
+      answer:
+        "Jennie is an extendable, open-source AI code review agent. It reads your diff, explores the codebase with real developer tools, and posts focused inline review comments plus a summary — catching issues a human reviewer would, like exposed secrets, inefficient code, potential bugs, unhandled edge cases, and missing tests.",
     },
     {
-      question: "Which LLM providers and models are supported?",
-      answer: "Supports Anthropic (Claude 3.7 Sonnet, Claude 3.5 Haiku), OpenAI (gpt-4o, o3-mini), OpenRouter, and Cloudflare Workers AI out of the box. You control your API keys and data privacy.",
+      question: "How do I run it?",
+      answer:
+        "You can run Jennie locally via CLI with `npx jennie review` on your uncommitted or staged git changes, or trigger it automatically in GitHub Actions on every Pull Request using `/jennie review`.",
     },
     {
-      question: "Can I run this locally before pushing a branch?",
-      answer: "Yes! Running 'npx jennie review' in your terminal inspects uncommitted or staged changes locally so you fix bugs before opening a PR.",
+      question: "Which AI providers does it support?",
+      answer:
+        "Jennie supports Anthropic (Claude 3.7 Sonnet, Claude 3.5 Haiku), OpenAI (gpt-4o, o3-mini), OpenRouter, Google Gemini, and custom local endpoints (Ollama/vLLM). You control your API keys and data privacy.",
     },
     {
-      question: "How does MCP tool integration work?",
-      answer: "Our engine includes a built-in MCP client. You can plug in any Model Context Protocol server (e.g. database schemas, Sentry error logs, browser test suites) so the AI agent inspects live context.",
+      question: "Can I extend Jennie with my own tools?",
+      answer:
+        "Yes! Built on the Model Context Protocol (MCP), you can attach custom tools or MCP servers (like database schemas, Sentry error logs, or internal docs) so Jennie can query real codebase context during review.",
+    },
+    {
+      question: "Is Jennie open source?",
+      answer:
+        "Yes, Jennie is 100% open source under the MIT license. You can inspect the source code, contribute tools, or self-host it freely.",
     },
   ],
 

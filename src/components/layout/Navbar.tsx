@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Star, Menu, X, User } from "lucide-react";
+import { Star, Menu, X } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GithubIcon from "@/components/ui/GithubIcon";
@@ -13,6 +13,29 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("hero");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [starsCount, setStarsCount] = useState<string>(PRODUCT_CONFIG.starsCount);
+
+  useEffect(() => {
+    async function fetchStars() {
+      try {
+        const res = await fetch(`https://api.github.com/repos/${PRODUCT_CONFIG.repoOrgName}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (typeof data.stargazers_count === "number") {
+            const count = data.stargazers_count;
+            if (count >= 1000) {
+              setStarsCount((count / 1000).toFixed(1) + "K");
+            } else {
+              setStarsCount(count.toString());
+            }
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch GitHub stars:", err);
+      }
+    }
+    fetchStars();
+  }, []);
 
   const headerRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -140,7 +163,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Right Side: GitHub Icon, Star Count, Avatar */}
+        {/* Right Side: GitHub Icon & Star Count */}
         <div className="hidden md:flex items-center gap-3.5 shrink-0">
           <a
             href={PRODUCT_CONFIG.repoUrl}
@@ -150,12 +173,8 @@ export default function Navbar() {
           >
             <GithubIcon className="w-4 h-4 text-[#f3efe6]" />
             <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400 group-hover:scale-110 transition-transform" />
-            <span>{PRODUCT_CONFIG.starsCount}</span>
+            <span>{starsCount}</span>
           </a>
-
-          <div className="w-8 h-8 rounded-full bg-[#2e2b26] border border-[#3e3a35] flex items-center justify-center text-[#f3efe6] shadow-sm hover:scale-105 transition-transform cursor-pointer">
-            <User className="w-4 h-4" />
-          </div>
         </div>
 
         {/* Mobile Hamburger Toggle Button */}
@@ -193,7 +212,7 @@ export default function Navbar() {
               className="flex items-center gap-2 text-xs font-mono font-bold text-[#f3efe6]"
             >
               <GithubIcon className="w-4 h-4" />
-              <span>GitHub ⭐ {PRODUCT_CONFIG.starsCount}</span>
+              <span>GitHub ⭐ {starsCount}</span>
             </a>
           </div>
         </div>
