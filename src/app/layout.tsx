@@ -44,9 +44,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${headlineFont.variable} ${sansFont.variable} ${monoFont.variable}`}
     >
-      <body className="min-h-screen flex flex-col paper-texture antialiased selection:bg-[#e8542c] selection:text-white">
+      <body
+        suppressHydrationWarning
+        className="min-h-screen flex flex-col paper-texture antialiased selection:bg-[#e8542c] selection:text-white"
+      >
         <SmoothScroll>
           <Navbar />
           <main className="flex-1">{children}</main>
