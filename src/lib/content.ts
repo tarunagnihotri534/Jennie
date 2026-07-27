@@ -4,6 +4,18 @@
 // are defined here as typed constants. Rebranded to JENNIE.
 // ============================================================================
 
+export interface InspectionCardData {
+  id: string;
+  number: string;
+  tag: string;
+  tagVariant: "default" | "accent";
+  title: string;
+  description: string;
+  checks: string[];
+  bgVariant: "darker" | "lifted";
+  hasOrangeBorder?: boolean;
+}
+
 export const PRODUCT_CONFIG = {
   // Product Name & Branding
   name: "JENNIE", // Product wordmark
@@ -33,33 +45,54 @@ export const PRODUCT_CONFIG = {
 
   // Inspection & Ethos Section (Matching Reference Design)
   inspection: {
-    kicker: "THE INSPECTION",
-    titleLine1: "A REVIEWER THAT READS THE WHOLE",
-    titleLine2: "PICTURE",
-    subtitle: "Jennie does the read-through a human reviewer would — on every change you ship.",
+    eyebrow: "Jennie does the read-through a human reviewer would — on every change you ship.",
     cards: [
       {
+        id: "card-1",
         number: "01",
         tag: "CI",
+        tagVariant: "default",
         title: "REVIEWS ON GITHUB",
         description: "Runs as a GitHub Action on every pull request. Reads the diff and posts focused inline comments plus a summary — like a human reviewer, minus the wait.",
-        isHighlighted: false,
+        checks: [
+          "Catches exposed secrets and bugs",
+          "Flags slow code and edge cases",
+          "Points out missing tests",
+        ],
+        bgVariant: "darker",
+        hasOrangeBorder: false,
       },
       {
+        id: "card-2",
         number: "02",
         tag: "AGENT",
+        tagVariant: "default",
         title: "EXPLORES YOUR CODEBASE",
-        description: "Built on an autonomous AI agent framework, Jennie runs a real agent loop with developer tools — so it reads far beyond the diff to understand the full picture.",
-        isHighlighted: true,
+        description: "Built on the flue agent framework, Jennie runs a real agent loop with developer tools — so it reads far beyond the diff to understand the full picture.",
+        checks: [
+          "Follows references, not just the diff",
+          "Anthropic · OpenAI · OpenRouter · Cloudflare",
+          "Open source and extendable",
+        ],
+        bgVariant: "lifted",
+        hasOrangeBorder: false,
       },
       {
+        id: "card-3",
         number: "03",
         tag: "MCP",
+        tagVariant: "accent",
         title: "EXTEND IT WITH MCP",
         description: "Acts as a Model Context Protocol client, so you can wire in external tools and give the agent more context while it reviews.",
-        isHighlighted: false,
+        checks: [
+          "Browser automation to QA web apps",
+          "Observability and docs servers",
+          "Bring your own MCP servers",
+        ],
+        bgVariant: "darker",
+        hasOrangeBorder: true,
       },
-    ],
+    ] as InspectionCardData[],
   },
 
   // Center Navigation Links
