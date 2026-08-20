@@ -1,6 +1,6 @@
 {
   "name": "@tarunagnihotri534/jennie",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "The Autonomous AI Code Reviewer for Indie Devs & Teams",
   "main": "bin/jennie.js",
   "bin": {
@@ -33,7 +33,7 @@
     "linter",
     "qa"
   ],
-  "author": "Tarun Agnihotri <tarunagnihotri534@gmail.com>",
+  "author": "Tarun Kumar Agnihotri <tarunagnihotri534@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tarunagnihotri534/Jennie/issues"

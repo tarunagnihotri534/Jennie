@@ -290,8 +290,18 @@ For detailed guides, check out the `./docs` directory or visit the `/docs` route
 
 ---
 
+## 👤 Author
+
+### **Tarun Kumar Agnihotri**
+
+[![GitHub](https://img.shields.io/badge/GitHub-tarunagnihotri534-181717?logo=github)](https://github.com/tarunagnihotri534)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Tarun__Agnihotri-0A66C2?logo=linkedin)](https://linkedin.com/in/tarun-agnihotri69)
+[![Email](https://img.shields.io/badge/Email-tarunagnihotri534%40gmail.com-EA4335?logo=gmail)](mailto:tarunagnihotri534@gmail.com)
+
+---
+
 ## 📄 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+MIT © **Tarun Kumar Agnihotri**. Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
 
 Developed with ❤️ for developers who ship fast.

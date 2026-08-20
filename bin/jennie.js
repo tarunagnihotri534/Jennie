@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const VERSION = '1.1.0';
+const VERSION = '1.1.1';
 
 // ANSI Color Helpers
 const colors = {
