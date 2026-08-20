@@ -12,13 +12,13 @@ Run Jennie in your project root to review staged or uncommitted git changes befo
 
 ```bash
 # Review staged changes locally
-$ npx jennie review
+$ npx @tarunagnihotri534/jennie review
 
 # Analyze against main branch with verbose log output
-$ npx jennie review --base main --verbose
+$ npx @tarunagnihotri534/jennie review --base main --verbose
 
 # Run with custom MCP tool configuration
-$ npx jennie review --mcp ./mcp-config.json
+$ npx @tarunagnihotri534/jennie review --mcp ./mcp-config.json
 ```
 
 ### GitHub Action Setup

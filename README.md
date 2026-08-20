@@ -4,6 +4,7 @@
 >
 > *Bugs, leaked secrets, missing tests, and architectural risks — caught before they merge.*
 
+[![npm version](https://img.shields.io/npm/v/@tarunagnihotri534/jennie.svg?color=red)](https://www.npmjs.com/package/@tarunagnihotri534/jennie)
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
 [![Next.js](https://img.shields.io/badge/Next.js-16.2.12-black?logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2.4-blue?logo=react)](https://react.dev/)
@@ -37,19 +38,31 @@ Jennie can be run **locally** in your terminal before committing, continuously a
 
 ## 🚀 Quickstart & Setup
 
+### 📦 Installation
+
+Install globally via npm or run directly using `npx`:
+
+```bash
+# Option 1: Install globally
+npm install -g @tarunagnihotri534/jennie
+
+# Option 2: Install as project dependency
+npm install @tarunagnihotri534/jennie
+```
+
 ### 1. Local CLI Review
 
 Inspect staged or uncommitted local changes before opening a PR:
 
 ```bash
 # Review staged changes in current working directory
-npx jennie review
+npx @tarunagnihotri534/jennie review
 
 # Compare local branch against main with thorough depth
-npx jennie review --base main --depth thorough --verbose
+npx @tarunagnihotri534/jennie review --base main --depth thorough --verbose
 
 # Run with custom MCP tool integration enabled
-npx jennie review --mcp ./mcp-config.json
+npx @tarunagnihotri534/jennie review --mcp ./mcp-config.json
 ```
 
 ### 2. GitHub Actions Integration
@@ -85,7 +98,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx jennie review --ci
+        run: npx @tarunagnihotri534/jennie review --ci
 ```
 
 ---
@@ -132,7 +145,7 @@ export JENNIE_MODEL="anthropic/claude-3.5-sonnet"
 ## ⚙️ CLI Command Reference
 
 ```bash
-npx jennie review [options]
+npx @tarunagnihotri534/jennie review [options]
 ```
 
 | Flag / Option | Description | Default |

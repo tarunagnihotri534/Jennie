@@ -1,13 +1,44 @@
 {
-  "name": "temp-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@tarunagnihotri534/jennie",
+  "version": "1.0.0",
+  "description": "The Autonomous AI Code Reviewer for Indie Devs & Teams",
+  "main": "bin/jennie.js",
+  "bin": {
+    "jennie": "./bin/jennie.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tarunagnihotri534/Jennie.git"
+  },
+  "keywords": [
+    "ai",
+    "code-review",
+    "jennie",
+    "github-actions",
+    "mcp",
+    "agent",
+    "linter",
+    "qa"
+  ],
+  "author": "Tarun Agnihotri <tarunagnihotri534@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tarunagnihotri534/Jennie/issues"
+  },
+  "homepage": "https://github.com/tarunagnihotri534/Jennie#readme",
   "dependencies": {
     "clsx": "^2.1.1",
     "gsap": "^3.15.0",
