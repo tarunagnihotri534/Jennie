@@ -86,12 +86,15 @@ npm install -g @tarunagnihotri534/jennie
 npm install @tarunagnihotri534/jennie
 ```
 
-### 1. Local CLI Review
+### 1. Local CLI Review & Security Audit
 
-Inspect staged or uncommitted local changes before opening a PR:
+Inspect staged changes or run a codebase-wide security audit:
 
 ```bash
-# Review staged changes in current working directory
+# Run deep security scan across whole codebase to find sensitive points
+npx @tarunagnihotri534/jennie audit
+
+# Review staged git changes in current working directory
 npx @tarunagnihotri534/jennie review
 
 # Compare local branch against main with thorough depth

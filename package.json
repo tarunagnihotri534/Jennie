@@ -1,6 +1,6 @@
 {
   "name": "@tarunagnihotri534/jennie",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The Autonomous AI Code Reviewer for Indie Devs & Teams",
   "main": "bin/jennie.js",
   "bin": {
