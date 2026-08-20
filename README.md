@@ -25,6 +25,7 @@ Jennie can be run **locally** in your terminal before committing, continuously a
 
 ## 🔥 Key Features
 
+- **🔒 Whole-Codebase Security Audit**: Run `npx @tarunagnihotri534/jennie audit` to scan your entire repository for sensitive points, leaked API keys (`sk-...`, `ghp_...`, `AIza...`), unprotected API route handlers, and unsafe code injections.
 - **🧠 Deep Codebase Context**: Explores far beyond git diffs. Traces imports, inspects modified call trees, and verifies interface contracts across files.
 - **🔌 Model Context Protocol (MCP)**: Native MCP client allows connecting live databases, Sentry observability, and Playwright browser suites into the review loop.
 - **⚡ Provider Agnostic**: Native support for **Anthropic** (Claude 3.7 Sonnet / 3.5 Haiku), **OpenAI** (gpt-4o / o3-mini), **OpenRouter**, and **Cloudflare Workers AI**.
@@ -32,7 +33,7 @@ Jennie can be run **locally** in your terminal before committing, continuously a
 - **💬 On-Demand PR Comment Triggers**: Trigger reviews directly inside GitHub PR comments using `/jennie review`.
 - **🛡️ Security & Privacy First**: Zero code storage. Your code diffs are processed directly by your chosen LLM provider and never used for model training.
 - **🌐 Ambient & Cross-Repo QA**: Audit local changes as you code (`npx jennie qa --ambient`) or verify multi-repository microservice breaking changes simultaneously.
-- **🎨 Interactive Web Dashboard**: Includes a modern Next.js 16 web landing page and interactive documentation engine with dark mode and smooth animations.
+- **🎨 Interactive Web Dashboard & 3D Visualizers**: Includes Next.js 16 web portal, Framer Motion vertical workflow demo, and interactive 3D system architecture visualizer.
 
 ---
 
@@ -184,11 +185,17 @@ export JENNIE_MODEL="anthropic/claude-3.5-sonnet"
 ## ⚙️ CLI Command Reference
 
 ```bash
+# Run AI code review on git diff
 npx @tarunagnihotri534/jennie review [options]
+
+# Run codebase-wide security audit for sensitive points
+npx @tarunagnihotri534/jennie audit
 ```
 
-| Flag / Option | Description | Default |
+| Command / Option | Description | Default |
 | :--- | :--- | :--- |
+| `audit` | Scan whole codebase for secret leaks, unprotected handlers & injection points | - |
+| `review` | Run AI code review on git diff or uncommitted changes | - |
 | `--base <branch>` | Base target branch for git diff comparison | `main` |
 | `--ci` | Run in CI mode for GitHub Actions output | `false` |
 | `--depth <level>` | Review depth (`fast`, `standard`, `thorough`) | `standard` |
