@@ -26,6 +26,24 @@ interface DocItem {
 
 const DOCS_LIST: DocItem[] = [
   {
+    slug: "security-audit",
+    title: "Codebase Security Audit Scanner",
+    category: "SECURITY",
+    description: "Scan your whole codebase to find sensitive security points, hardcoded API keys, unprotected API route handlers, and unsafe injections.",
+    codeSnippet: {
+      code: `$ npx @tarunagnihotri534/jennie audit`,
+      language: "bash",
+      filename: "Terminal",
+    },
+    content: [
+      "The npx @tarunagnihotri534/jennie audit command performs a deep scan across all project files in your repository.",
+      "1. Hardcoded Secret Leaks: Detects API keys (sk-..., ghp_..., AIza...), bearer tokens, and private credentials.",
+      "2. Unprotected API Handlers: Flags dynamic Next.js / Node API handlers (GET/POST) lacking authentication or request validation.",
+      "3. Unsanitized Injections: Scans for dangerouslySetInnerHTML or eval() patterns to prevent XSS vulnerabilities.",
+      "4. Actionable Fix Steps: Outputs precise file paths, line numbers, code snippets, and remediation instructions.",
+    ],
+  },
+  {
     slug: "architecture-workflow",
     title: "System Architecture & Workflow",
     category: "ARCHITECTURE",

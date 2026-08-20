@@ -1,25 +1,31 @@
 "use client";
 
 import { useState } from "react";
-import { GitBranch, Terminal, MessageSquareCode } from "lucide-react";
+import { GitBranch, Terminal, MessageSquareCode, ShieldAlert } from "lucide-react";
 import CodeBlock from "@/components/ui/CodeBlock";
 import { PRODUCT_CONFIG } from "@/lib/content";
 
 export default function QuickStart() {
-  const [activeTab, setActiveTab] = useState<"github" | "local" | "pr">("github");
+  const [activeTab, setActiveTab] = useState<"audit" | "local" | "github" | "pr">("audit");
 
   const tabs = [
     {
-      id: "github" as const,
-      label: "GitHub Action",
-      icon: GitBranch,
-      data: PRODUCT_CONFIG.quickstart.githubAction,
+      id: "audit" as const,
+      label: "🔒 Security Audit",
+      icon: ShieldAlert,
+      data: PRODUCT_CONFIG.quickstart.securityAudit,
     },
     {
       id: "local" as const,
       label: "Local CLI",
       icon: Terminal,
       data: PRODUCT_CONFIG.quickstart.localCli,
+    },
+    {
+      id: "github" as const,
+      label: "GitHub Action",
+      icon: GitBranch,
+      data: PRODUCT_CONFIG.quickstart.githubAction,
     },
     {
       id: "pr" as const,
@@ -41,10 +47,10 @@ export default function QuickStart() {
             QUICK START IN 60 SECONDS
           </span>
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-[#181715] dark:text-[#f3efe6]">
-            DEPLOY OR RUN LOCALLY
+            AUDIT & REVIEW COMMANDS
           </h2>
           <p className="mt-4 text-base md:text-lg text-[#5e5a54] dark:text-[#a39e93]">
-            Choose your workflow integration strategy below.
+            Run whole-codebase security audits or local git diff reviews below.
           </p>
         </div>
 

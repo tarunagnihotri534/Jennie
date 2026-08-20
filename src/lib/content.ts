@@ -19,36 +19,38 @@ export interface InspectionCardData {
 export const PRODUCT_CONFIG = {
   // Product Name & Branding
   name: "JENNIE", // Product wordmark
-  tagline: "The AI Code Reviewer for Indie Devs & Teams",
-  badge: "OPEN SOURCE",
+  tagline: "The Autonomous AI Code Reviewer & Security Audit Engine",
+  badge: "v1.1.0 OPEN SOURCE",
   repoOrgName: "tarunagnihotri534/Jennie", // GitHub repository org/name display
   repoUrl: "https://github.com/tarunagnihotri534/Jennie", // GitHub repository URL
+  npmUrl: "https://www.npmjs.com/package/@tarunagnihotri534/jennie",
   starsCount: "0", // Default GitHub star count fallback
   stampText: "CLEARED TO MERGE", // Rotated stamp badge text
 
   // CLI & Command Names
-  cliCommand: "jennie",
-  initCommand: "npx jennie init",
-  reviewCommand: "npx jennie review",
+  cliCommand: "@tarunagnihotri534/jennie",
+  initCommand: "npx @tarunagnihotri534/jennie init",
+  reviewCommand: "npx @tarunagnihotri534/jennie review",
+  auditCommand: "npx @tarunagnihotri534/jennie audit",
   prTriggerCommand: "/jennie review",
 
   // Hero Headlines & Subheadlines
   hero: {
-    headlineLine1: "CODE REVIEW FOR",
+    headlineLine1: "CODE REVIEW & AUDIT FOR",
     headlineLine2Words: ["HACKERS", "VIBE CODERS", "BUILDERS", "SHIPPERS", "INDIE DEVS"],
-    subheadlinePrefix: "Bugs, leaked secrets, missing tests — ",
+    subheadlinePrefix: "Bugs, leaked secrets, sensitive security points — ",
     subheadlineHighlight: "caught before they merge.",
     ctaCaptionPrefix: "SCAFFOLDS A GITHUB ACTION - OR ",
-    ctaCaptionHighlight: "NPX JENNIE REVIEW",
+    ctaCaptionHighlight: "NPX @TARUNAGNIHOTRI534/JENNIE AUDIT",
     ctaCaptionSuffix: " LOCALLY",
   },
 
-  // Inspection & Ethos Section (Matching Reference Design)
+  // Inspection & Ethos Section
   inspection: {
-    kicker: "THE INSPECTION",
+    kicker: "THE INSPECTION & AUDIT ENGINE",
     titleLine1: "A REVIEWER THAT READS",
     titleLine2: "THE WHOLE PICTURE",
-    subtitle: "Jennie does the read-through a human reviewer would — on every change you ship.",
+    subtitle: "Jennie performs deep read-throughs and whole-codebase security audits on every line you ship.",
     cards: [
       {
         id: "card-1",
@@ -60,7 +62,7 @@ export const PRODUCT_CONFIG = {
         checks: [
           "Catches exposed secrets and bugs",
           "Flags slow code and edge cases",
-          "Points out missing tests",
+          "Points out missing unit tests",
         ],
         bgVariant: "darker",
         hasOrangeBorder: false,
@@ -71,11 +73,11 @@ export const PRODUCT_CONFIG = {
         tag: "AGENT",
         tagVariant: "default",
         title: "EXPLORES YOUR CODEBASE",
-        description: "Built on the flue agent framework, Jennie runs a real agent loop with developer tools — so it reads far beyond the diff to understand the full picture.",
+        description: "Built on an autonomous agent loop with AST developer tools — so it reads far beyond the diff to understand cross-file function calls.",
         checks: [
           "Follows references, not just the diff",
-          "Anthropic · OpenAI · OpenRouter · Cloudflare",
-          "Open source and extendable",
+          "Anthropic · OpenAI · OpenRouter",
+          "Open source & 100% extendable",
         ],
         bgVariant: "lifted",
         hasOrangeBorder: false,
@@ -83,14 +85,14 @@ export const PRODUCT_CONFIG = {
       {
         id: "card-3",
         number: "03",
-        tag: "MCP",
+        tag: "AUDIT",
         tagVariant: "accent",
-        title: "EXTEND IT WITH MCP",
-        description: "Acts as a Model Context Protocol client, so you can wire in external tools and give the agent more context while it reviews.",
+        title: "CODEBASE SECURITY AUDIT",
+        description: "Scans your entire repository for sensitive points, leaked API keys, unprotected API route handlers, and unsafe code injections.",
         checks: [
-          "Browser automation to QA web apps",
-          "Observability and docs servers",
-          "Bring your own MCP servers",
+          "Finds hardcoded secrets & bearer tokens",
+          "Flags unprotected dynamic API handlers",
+          "Gives actionable remediation steps",
         ],
         bgVariant: "darker",
         hasOrangeBorder: true,
@@ -101,18 +103,42 @@ export const PRODUCT_CONFIG = {
   // Center Navigation Links
   navLinks: [
     { label: "FEATURES", href: "#features" },
-    { label: "INSTALL", href: "#quickstart" },
+    { label: "SECURITY AUDIT", href: "#quickstart" },
+    { label: "ARCHITECTURE", href: "/docs" },
     { label: "FAQ", href: "#faq" },
     { label: "DOCS", href: "/docs" },
   ],
 
   // QuickStart Showcase Code Snippets
   quickstart: {
+    securityAudit: {
+      title: "Whole-Codebase Security Audit",
+      filename: "terminal",
+      language: "bash",
+      code: `# Run deep security audit across whole codebase to find sensitive points
+$ npx @tarunagnihotri534/jennie audit
+
+# Detects API secret leaks, unprotected API handlers & unsanitized code injections
+# Output: Detailed security report with file path, line numbers & remediation steps`,
+    },
+    localCli: {
+      title: "Local Execution",
+      filename: "terminal",
+      language: "bash",
+      code: `# Run code review locally against staged changes or git diff
+$ npx @tarunagnihotri534/jennie review
+
+# Analyze specific target branch with thorough depth
+$ npx @tarunagnihotri534/jennie review --base main --depth thorough --verbose
+
+# Run with interactive MCP tools enabled
+$ npx @tarunagnihotri534/jennie review --mcp ./mcp-config.json`,
+    },
     githubAction: {
       title: "GitHub Action Workflow",
       filename: ".github/workflows/ai-review.yml",
       language: "yaml",
-      code: `name: AI Code Review
+      code: `name: AI Code Review & Security Audit
 on:
   pull_request:
     types: [opened, synchronize]
@@ -127,24 +153,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Run AI Code Review
+      - name: Run Jennie Security Audit & Review
         env:
           ANTHROPIC_API_KEY: \${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
-        run: npx jennie review --ci`,
-    },
-    localCli: {
-      title: "Local Execution",
-      filename: "terminal",
-      language: "bash",
-      code: `# Run code review locally against staged changes or git diff
-$ npx jennie review
-
-# Analyze specific target branch
-$ npx jennie review --base main --verbose
-
-# Run with interactive MCP tools enabled
-$ npx jennie review --mcp ./mcp-config.json`,
+        run: npx @tarunagnihotri534/jennie audit && npx @tarunagnihotri534/jennie review --ci`,
     },
     prTrigger: {
       title: "On-Demand PR Comment Trigger",
@@ -164,14 +177,14 @@ Result: 2 suggestions posted inline. 0 security leaks found.`,
   // FAQ Section
   faqs: [
     {
-      question: "What is Jennie?",
+      question: "What is Jennie v1.1.0?",
       answer:
-        "Jennie is an extendable, open-source AI code review agent. It reads your diff, explores the codebase with real developer tools, and posts focused inline review comments plus a summary — catching issues a human reviewer would, like exposed secrets, inefficient code, potential bugs, unhandled edge cases, and missing tests.",
+        "Jennie is an extendable, open-source AI code review and security audit agent. It reads your diff, inspects full AST call trees, scans your whole repository for sensitive points (`npx @tarunagnihotri534/jennie audit`), and posts focused inline review comments plus summaries.",
     },
     {
-      question: "How do I run it?",
+      question: "How do I run the Codebase Security Audit?",
       answer:
-        "You can run Jennie locally via CLI with `npx jennie review` on your uncommitted or staged git changes, or trigger it automatically in GitHub Actions on every Pull Request using `/jennie review`.",
+        "Run `npx @tarunagnihotri534/jennie audit` in your terminal. It scans all project files for hardcoded API keys, unprotected API route handlers, dangerous innerHTML injection, and unvalidated environment variable usage.",
     },
     {
       question: "Which AI providers does it support?",
@@ -186,16 +199,17 @@ Result: 2 suggestions posted inline. 0 security leaks found.`,
     {
       question: "Is Jennie open source?",
       answer:
-        "Yes, Jennie is 100% open source under the MIT license. You can inspect the source code, contribute tools, or self-host it freely.",
+        "Yes, Jennie is 100% open source under the MIT license. You can inspect the source code, contribute tools, or publish custom rules.",
     },
   ],
 
   // Footer Links & Metadata
   footer: {
-    copyright: `© ${new Date().getFullYear()} JENNIE Agent. Open Source under MIT License.`,
+    copyright: `© ${new Date().getFullYear()} JENNIE Agent v1.1.0. Open Source under MIT License.`,
     starHistoryText: "Star history tracking active on GitHub",
     links: [
       { label: "GitHub", href: "https://github.com/tarunagnihotri534/Jennie" },
+      { label: "NPM Package", href: "https://www.npmjs.com/package/@tarunagnihotri534/jennie" },
       { label: "Documentation", href: "/docs" },
       { label: "MIT License", href: "https://opensource.org/licenses/MIT" },
     ],
