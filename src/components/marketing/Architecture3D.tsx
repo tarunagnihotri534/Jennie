@@ -124,7 +124,7 @@ if (isCI) {
 
 export default function Architecture3D() {
   const [activeLayerId, setActiveLayerId] = useState<string>("layer-2");
-  const [is3DTilted, setIs3DTilted] = useState<boolean>(true);
+  const [is3DTilted, setIs3DTilted] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<"overview" | "code">("overview");
 
   const activeLayer = LAYERS.find((l) => l.id === activeLayerId) || LAYERS[1];
@@ -149,7 +149,7 @@ export default function Architecture3D() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e8542c]/10 border border-[#e8542c]/30 text-[#e8542c] font-mono text-xs uppercase tracking-wider mb-4">
             <Layers className="w-3.5 h-3.5" />
-            <span>INTERACTIVE 3D SYSTEM ARCHITECTURE</span>
+            <span>INTERACTIVE SYSTEM ARCHITECTURE</span>
           </div>
 
           <h2 className="font-headline text-3xl sm:text-5xl uppercase tracking-tight font-extrabold text-white">
@@ -157,7 +157,7 @@ export default function Architecture3D() {
           </h2>
 
           <p className="mt-4 text-sm sm:text-base text-[#a39e93] font-sans leading-relaxed">
-            Click through the 4-layer 3D architectural pipeline to see how raw git diffs are transformed into deep, senior-engineer quality code reviews.
+            Click through the 4-layer architectural pipeline to see how raw git diffs are transformed into deep, senior-engineer quality code reviews.
           </p>
 
           {/* Controls Bar */}
@@ -171,7 +171,7 @@ export default function Architecture3D() {
               }`}
             >
               <Sparkles className="w-3.5 h-3.5" />
-              <span>{is3DTilted ? "3D ISOMETRIC VIEW" : "FLAT 2D VIEW"}</span>
+              <span>{is3DTilted ? "3D TILT VIEW (ON)" : "TOGGLE 3D PERSPECTIVE"}</span>
             </button>
           </div>
         </div>
@@ -183,10 +183,11 @@ export default function Architecture3D() {
             <div
               className={`w-full max-w-xl transition-all duration-700 ease-out space-y-4 ${
                 is3DTilted
-                  ? "[transform:perspective(1200px)_rotateX(28deg)_rotateY(-12deg)_rotateZ(2deg)] sm:[transform:perspective(1200px)_rotateX(32deg)_rotateY(-16deg)_rotateZ(4deg)] hover:[transform:perspective(1200px)_rotateX(24deg)_rotateY(-10deg)]"
-                  : ""
+                  ? "[transform:perspective(1200px)_rotateX(14deg)_rotateY(-6deg)] sm:[transform:perspective(1200px)_rotateX(16deg)_rotateY(-8deg)] hover:[transform:perspective(1200px)_rotateX(10deg)_rotateY(-4deg)]"
+                  : "[transform:none]"
               }`}
             >
+
               {LAYERS.map((layer, index) => {
                 const isActive = layer.id === activeLayerId;
                 const LayerIcon = layer.icon;
