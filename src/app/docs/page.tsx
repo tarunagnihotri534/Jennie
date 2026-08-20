@@ -26,6 +26,24 @@ interface DocItem {
 
 const DOCS_LIST: DocItem[] = [
   {
+    slug: "architecture-workflow",
+    title: "System Architecture & Workflow",
+    category: "ARCHITECTURE",
+    description: "Multi-tier agentic architecture: Input layer, Context & AST engine, Agent reasoning loop, and Output reporters.",
+    codeSnippet: {
+      code: `CLI / CI Trigger ──► Git Diff & AST Explorer ──► MCP Client + LLM Reasoning ──► Terminal / GitHub PR Comments`,
+      language: "text",
+      filename: "System Workflow Pipeline",
+    },
+    content: [
+      "Jennie decouples context gathering (git diffs, AST parsing, repo guidelines) from model reasoning (Anthropic, OpenAI, OpenRouter) and output dispatching (CLI terminal, GitHub Actions inline comments).",
+      "1. Trigger & Execution Layer: Receives CLI flags or GitHub Action CI webhook payloads.",
+      "2. Context & AST Engine: Parses modified files, checks call trees, and enforces custom .jennie/rules.md constraints.",
+      "3. Reasoning Loop: Connects Model Context Protocol (MCP) servers and invokes provider LLM reasoning.",
+      "4. Output & Reporting Layer: Formats clean ANSI terminal outputs and posts inline PR review comments.",
+    ],
+  },
+  {
     slug: "setup",
     title: "Setup & Quickstart Guide",
     category: "GETTING STARTED",

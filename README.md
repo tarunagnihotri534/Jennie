@@ -36,6 +36,42 @@ Jennie can be run **locally** in your terminal before committing, continuously a
 
 ---
 
+## 🏗️ System Architecture Workflow
+
+```mermaid
+flowchart TD
+    subgraph Trigger["1. Execution Trigger"]
+        CLI["💻 CLI Review\n(npx @tarunagnihotri534/jennie review)"]
+        GHA["🐙 GitHub Actions CI\n(.github/workflows/jennie-review.yml)"]
+        WebGUI["🌐 Web GUI Documentation\n(http://localhost:3000)"]
+    end
+
+    subgraph Analysis["2. Context & AST Explorer"]
+        GitDiff["Git Diff & Modified Files Explorer"]
+        ASTParser["AST Call Tree & Dependency Graph"]
+        RulesParser["Repo Guidelines Parser (.jennie/rules.md)"]
+    end
+
+    subgraph Core["3. Jennie Agent Reasoning Loop"]
+        PromptBuilder["Prompt Construction & Context Scaffolder"]
+        MCPClient["🔌 Model Context Protocol (MCP Client)"]
+        LLM["🧠 LLM Engine (Anthropic / OpenAI / OpenRouter)"]
+    end
+
+    subgraph Outputs["4. Output & Reporting"]
+        TermReport["💻 ANSI Terminal Report & Security Audit"]
+        PRComments["💬 GitHub PR Inline Comments & Summary"]
+    end
+
+    Trigger --> Analysis
+    Analysis --> Core
+    Core --> Outputs
+```
+
+*For detailed sequence diagrams and component breakdowns, read the full [System Architecture & Workflow Guide](docs/architecture-workflow.md).*
+
+---
+
 ## 🚀 Quickstart & Setup
 
 ### 📦 Installation
@@ -230,6 +266,7 @@ This repository contains both the **Jennie Code Review Agent** documentation and
 
 For detailed guides, check out the `./docs` directory or visit the `/docs` route on the web application:
 
+- [System Architecture & Workflow Guide](docs/architecture-workflow.md)
 - [Setup & Quickstart Guide](docs/setup.md)
 - [GitHub Action Options](docs/action-options.md)
 - [AI Provider Configuration](docs/ai-provider-config.md)
