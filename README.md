@@ -5,6 +5,8 @@
 > *Bugs, leaked secrets, missing tests, and architectural risks — caught before they merge.*
 
 [![npm version](https://img.shields.io/npm/v/@tarunagnihotri534/jennie.svg?color=red)](https://www.npmjs.com/package/@tarunagnihotri534/jennie)
+[![npm downloads](https://img.shields.io/npm/dt/@tarunagnihotri534/jennie.svg?color=brightgreen&logo=npm)](https://www.npmjs.com/package/@tarunagnihotri534/jennie)
+[![npm monthly](https://img.shields.io/npm/dm/@tarunagnihotri534/jennie.svg?color=blue)](https://www.npmjs.com/package/@tarunagnihotri534/jennie)
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
 [![Next.js](https://img.shields.io/badge/Next.js-16.2.12-black?logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2.4-blue?logo=react)](https://react.dev/)

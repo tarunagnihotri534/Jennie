@@ -24,10 +24,10 @@
     "url": "git+https://github.com/tarunagnihotri534/Jennie.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "keywords": [
-    "ai",
+    "ai", 
     "code-review",
     "jennie",
     "github-actions",
